@@ -1,0 +1,207 @@
+:root{font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#171714;background:#f4f4ef;font-size:16px;color-scheme:light;--ink:#171714;--paper:#fff;--muted:#71716a;--line:#deded6;--accent:#d9ff43;--soft:#ededE6}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{background:#f4f4ef}
+body{margin:0;min-height:100dvh}
+button,input,select{font:inherit;color:inherit;border:1px solid var(--line);border-radius:14px;background:var(--paper);min-height:48px}
+button,select{cursor:pointer;touch-action:manipulation}
+button{padding:11px 15px;font-weight:650}
+button:active{transform:scale(.98)}
+button:disabled{color:#999;cursor:default;transform:none}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #9dbb23;outline-offset:2px}
+input{padding:12px 14px;min-width:0}
+select{padding:10px 34px 10px 13px}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-weight:750}
+svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;width:20px;height:20px;vertical-align:middle}
+button[hidden],[hidden]{display:none!important}
+.app{width:100%;max-width:520px;margin:0 auto;padding:max(18px,env(safe-area-inset-top)) 16px max(36px,env(safe-area-inset-bottom))}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px;margin-bottom:20px}
+.brand{display:flex;align-items:center}
+.wordmark{display:flex;align-items:flex-end;gap:0}
+.brand-logo{display:block;width:34px;height:34px;flex:none;margin-right:-1px}
+.topbar h1{font-size:21px;line-height:1.05;letter-spacing:-.5px}
+.topbar p{font-size:11px;color:var(--muted);margin-top:3px;text-transform:uppercase;letter-spacing:.09em;font-weight:700}
+.topbar button{border:0;background:transparent;padding:4px 0 4px 10px;font-size:13px;min-height:48px}
+.topbar button span{display:inline-grid;place-items:center;width:27px;height:27px;margin-right:5px;border-radius:50%;background:var(--ink);color:#fff;font-size:17px}
+.toolbar{display:flex;justify-content:space-between;align-items:stretch;gap:10px;margin-bottom:14px}
+.count-buttons{display:flex;flex:1;padding:4px;background:#e8e8e1;border-radius:16px}
+.count-buttons button{display:flex;align-items:baseline;justify-content:center;gap:5px;flex:1;min-height:44px;border:0;background:transparent;border-radius:12px;padding:7px 11px;color:var(--muted)}
+.count-buttons button strong{font-size:16px}
+.count-buttons button span{font-size:12px;font-weight:600}
+.count-buttons button[aria-pressed=true]{background:var(--paper);color:var(--ink);box-shadow:0 2px 10px #1919160d}
+.toolbar>button{display:flex;gap:7px;align-items:center;justify-content:center;min-width:108px;background:var(--ink);color:#fff;border-color:var(--ink)}
+.board{display:flex;flex-direction:column;gap:14px}
+.box{border:1px solid var(--line);border-radius:24px;background:var(--paper);box-shadow:0 6px 24px #2424180a}
+.timer-box{padding:18px;display:flex;flex-direction:column;min-height:430px;overflow:hidden}
+.box-top{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:32px}
+.box-top h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.box-top select{font-size:13px;border:0;padding-top:0;padding-bottom:0;min-height:36px;background-color:transparent;font-weight:700}
+.box-top span{font-size:13px;font-weight:700}
+.clock-area{display:flex;align-items:center;justify-content:center;flex:1;min-height:225px;padding:12px 0 6px}
+.clock{position:relative;width:min(62vw,250px);height:min(62vw,250px)}
+.clock>svg{width:100%;height:100%;stroke-width:5}
+.track{stroke:#ecece6}
+#ring{stroke:var(--ink);stroke-dasharray:678.584;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:center;stroke-linecap:round}
+.clock-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+#seconds{font-size:clamp(74px,23vw,104px);font-weight:760;line-height:.9;letter-spacing:-.075em;font-variant-numeric:tabular-nums;margin-right:.07em}
+#clock-label{font-size:12px;margin-top:13px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+.timer-box h3{font-size:26px;text-align:center;line-height:1.15;overflow-wrap:anywhere;min-height:30px;margin-top:5px;letter-spacing:-.6px}
+.timer-meta{display:flex;align-items:center;justify-content:space-between;gap:15px;font-size:12px;color:var(--muted);margin-top:12px}
+.timer-meta button{border:0;background:transparent;color:inherit;font-size:12px;padding:6px 0;min-height:40px}
+.timer-meta button:before{content:'●';color:#72a500;font-size:10px;margin-right:6px}
+.timer-meta button[aria-pressed=false]:before{color:#aaa}
+.timer-actions{display:flex;gap:9px;margin-top:5px}
+.timer-actions button{flex:1;min-height:56px}
+.timer-actions .primary{flex:1.8}
+.primary{background:var(--accent);color:var(--ink);border-color:#b8d936}
+.primary:disabled{background:#ecece6;color:#999;border-color:#e2e2dc}
+.exercise-grid{display:flex;flex-direction:column;gap:10px;counter-reset:exercise}
+.exercise-card{position:relative;border:1px solid var(--line);border-radius:18px;background:var(--paper);padding:14px 14px 13px 63px;min-height:116px;display:flex;flex-direction:column;min-width:0;counter-increment:exercise}
+.exercise-card:before{content:counter(exercise,decimal-leading-zero);position:absolute;left:15px;top:16px;width:36px;height:36px;display:grid;place-items:center;border-radius:50%;background:var(--ink);color:#fff;font-size:11px;font-weight:800;letter-spacing:.04em}
+.card-top{display:flex;justify-content:space-between;align-items:center;gap:6px;min-height:24px}
+.card-top h2{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.remove{border:0;background:transparent;padding:0;font-size:24px;font-weight:400;line-height:1;width:38px;min-height:38px;margin:-8px -8px -7px 0;color:var(--muted)}
+.exercise-title{font-size:22px;line-height:1.15;display:flex;align-items:center;overflow-wrap:anywhere;padding:3px 0 7px;letter-spacing:-.45px}
+.card-bottom{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);gap:5px}
+.card-bottom>span{padding:4px 8px;border-radius:20px;background:#f0f0ea;font-weight:700}
+.card-bottom .change,.card-bottom .swap{border:0;background:transparent;min-height:38px}
+.card-bottom .change{font-size:12px;padding:4px 8px;color:var(--ink)}
+.card-bottom .swap{padding:3px 2px 3px 8px}
+.card-bottom .swap svg{margin:0;width:18px}
+.card-bottom>div{display:flex;align-items:center;gap:2px}
+.add-card{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:76px;border:1px dashed #bdbdb5;border-radius:18px;background:transparent;padding:15px;text-align:center;font-size:13px}
+.add-card>span:first-child{font-size:23px;line-height:1;font-weight:400}
+.sequence-box{margin-top:14px;padding:18px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.section-kicker{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:750;margin-bottom:3px}
+.sequence-box h2{font-size:18px}
+.sequence-box ol{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:100%;margin:0;padding:0;list-style:none;font-size:11px}
+.sequence-box li{display:flex;justify-content:center;align-items:center;min-height:36px;padding:5px 7px;border-radius:10px;background:#f0f0ea;text-align:center}
+.sequence-box li+li:before{display:none}
+.sequence-box .rest{background:var(--ink);color:#fff}
+.sequence-box li:only-child{grid-column:1/-1}
+#message{font-size:13px;line-height:1.5;padding:14px 4px;color:#8b2d1f}
+#awake{font-size:11px;margin-top:10px;line-height:1.5;text-align:center;color:var(--muted)}
+.timer-box.running{position:relative}
+.timer-box.resting{background:#161614;color:#fff;border-color:#161614}
+.timer-box.resting #ring{stroke:var(--accent)}
+.timer-box.resting .track{stroke:#41413c}
+.timer-box.resting #clock-label,.timer-box.resting .timer-meta,.timer-box.resting #awake{color:#bcbcb4}
+.timer-box.resting button{color:#fff;background:transparent;border-color:#62625b}
+.timer-box.resting .primary{background:var(--accent);color:var(--ink);border-color:var(--accent)}
+.exercise-card.active{border-color:#99b51d;box-shadow:inset 4px 0 0 var(--accent)}
+.exercise-card.active:before{background:var(--accent);color:var(--ink)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+dialog{background:var(--paper);color:var(--ink);border:0;border-radius:26px 26px 0 0;width:min(520px,100%);padding:22px 18px max(22px,env(safe-area-inset-bottom));max-height:90dvh;margin:auto auto 0;box-shadow:0 -10px 40px #0002}
+dialog::backdrop{background:#1119;backdrop-filter:blur(3px)}
+.dialog-top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:20px}
+.dialog-top:before{content:'';position:absolute;top:8px;left:50%;width:42px;height:4px;transform:translateX(-50%);border-radius:5px;background:#d2d2cc}
+.dialog-top h2{font-size:22px}
+.dialog-top button{border:0;background:transparent;font-size:26px;padding:0;width:44px;min-height:44px}
+#add-form{display:grid;grid-template-columns:1fr auto;gap:8px;margin-bottom:24px}
+#exercise-name{grid-column:1/-1}
+#add-form input,#add-form select{font-size:14px}
+#add-form select{width:100%}
+.bank-group{margin:24px 0}
+.bank-group h3{border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:4px;font-size:13px;text-transform:uppercase;letter-spacing:.08em}
+.bank-row{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:6px 0;font-size:14px}
+.bank-row span{overflow-wrap:anywhere}
+.bank-row button{font-size:12px;min-height:40px;padding:6px 8px;border:0;background:transparent;color:var(--muted)}
+.dialog-bottom{display:flex;justify-content:space-between;gap:10px;padding-top:15px;border-top:1px solid var(--line)}
+.dialog-bottom button{font-size:12px}
+#choose-list h3{margin-top:23px;padding-bottom:10px;border-bottom:1px solid var(--line);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+#choose-list .pick-move{display:block;text-align:left;width:100%;border:0;border-bottom:1px solid var(--line);border-radius:0;font-size:15px;padding:13px 2px;background:transparent}
+#choose-list .empty{font-size:14px;padding:20px 0}
+body.training .toolbar button,body.training #open-bank{pointer-events:none;opacity:.35}
+body.training .card-bottom button,body.training .remove,body.training .add-card{visibility:hidden}
+body.training .topbar,body.training .toolbar,body.training .exercise-grid,body.training .sequence-box{display:none}
+body.training .app{padding-top:max(10px,env(safe-area-inset-top));padding-bottom:max(10px,env(safe-area-inset-bottom));min-height:100dvh;display:flex}
+body.training .board{width:100%}
+body.training .timer-box{min-height:calc(100dvh - max(20px,env(safe-area-inset-top) + env(safe-area-inset-bottom)));width:100%;justify-content:space-between}
+body.training .clock{width:min(74vw,310px);height:min(74vw,310px)}
+body.training .clock-area{min-height:0}
+body.training #seconds{font-size:clamp(92px,29vw,128px)}
+@media(min-width:560px){.app{padding-left:24px;padding-right:24px}
+.timer-box{padding:22px}
+.exercise-card{min-height:122px}
+.sequence-box ol{grid-template-columns:repeat(6,1fr)}
+}
+@media(max-width:360px){.app{padding-left:12px;padding-right:12px}
+.toolbar>button{min-width:96px;padding-left:11px;padding-right:11px}
+.clock{width:215px;height:215px}
+.timer-box{padding:15px;min-height:405px}
+.exercise-card{padding-left:58px}
+.exercise-card:before{left:12px}
+.exercise-title{font-size:20px}
+.timer-actions button{padding-left:8px;padding-right:8px}
+dialog{padding-left:15px;padding-right:15px}
+}
+
+/* Keep the primary timer experience inside one iPhone viewport. */
+html,body{height:100%;overflow:hidden;overscroll-behavior:none}
+.app{height:100vh;height:100dvh;min-height:0;padding:max(10px,env(safe-area-inset-top)) 12px max(10px,env(safe-area-inset-bottom));display:flex;flex-direction:column;overflow:hidden}
+.topbar{flex:none;min-height:44px;margin-bottom:8px}
+.brand-logo{width:32px;height:32px}
+.toolbar{flex:none;margin-bottom:8px}
+.board{flex:1;min-height:0;gap:8px}
+.timer-box{flex:1;min-height:0;padding:14px}
+.clock-area{min-height:0;padding:5px 0;overflow:hidden}
+.clock{width:min(48vw,24dvh,205px);height:min(48vw,24dvh,205px);flex:none}
+.timer-box h3{font-size:21px;min-height:24px;margin-top:2px}
+.timer-meta{margin-top:5px}
+.timer-actions button{min-height:50px}
+.exercise-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;flex:none}
+.exercise-card{min-height:76px;padding:7px 8px 6px 42px;border-radius:15px}
+.exercise-card:before{left:8px;top:9px;width:28px;height:28px;font-size:9px}
+.card-top{min-height:18px}
+.card-top h2{font-size:8px;letter-spacing:.06em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.remove{width:28px;min-height:28px;font-size:20px;margin:-6px -6px -5px 0}
+.exercise-title{font-size:15px;line-height:1.05;padding:0 0 3px;letter-spacing:-.2px;min-height:19px}
+.card-bottom{font-size:9px}
+.card-bottom>span{padding:2px 5px}
+.card-bottom .change,.card-bottom .swap{min-height:26px}
+.card-bottom .change{font-size:9px;padding:2px 4px}
+.card-bottom .swap{padding:2px}
+.card-bottom .swap svg{width:14px;height:14px}
+.add-card{min-height:76px;border-radius:15px;padding:8px;gap:6px}
+.add-card>span:first-child{font-size:19px}
+.sequence-box{display:none}
+#message{position:fixed;z-index:5;left:12px;right:12px;bottom:max(10px,env(safe-area-inset-bottom));padding:10px 12px;border-radius:12px;background:#fff1ed;box-shadow:0 4px 18px #0002}
+dialog{overflow-y:auto;overscroll-behavior:contain}
+
+@media(max-height:650px){
+  .app{padding-top:max(6px,env(safe-area-inset-top));padding-bottom:max(6px,env(safe-area-inset-bottom))}
+  .topbar{min-height:38px;margin-bottom:5px}
+  .brand-logo{width:29px;height:29px}
+  .topbar p{display:none}
+  .toolbar{margin-bottom:5px}
+  .count-buttons{padding:2px}
+  .count-buttons button,.toolbar>button{min-height:42px}
+  .timer-box{padding:10px}
+  .box-top{min-height:26px}
+  .clock{width:min(42vw,19dvh,140px);height:min(42vw,19dvh,140px)}
+  #seconds{font-size:clamp(52px,18vw,72px)}
+  #clock-label{font-size:9px;margin-top:7px}
+  .timer-box h3{font-size:18px;min-height:20px}
+  .timer-meta{margin-top:1px}
+  .timer-meta button{min-height:30px}
+  .timer-actions{margin-top:2px}
+  .timer-actions button{min-height:44px}
+  .exercise-grid{gap:6px}
+  .exercise-card,.add-card{min-height:68px}
+  .exercise-card{padding-top:5px;padding-bottom:4px}
+  .card-top{min-height:15px}
+  .exercise-title{font-size:14px;min-height:16px;padding-bottom:1px}
+}
+
+@media(orientation:landscape) and (max-height:500px){
+  .app{max-width:900px;padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}
+  .topbar{position:absolute;left:max(12px,env(safe-area-inset-left));top:max(6px,env(safe-area-inset-top));z-index:2}
+  .topbar>button{display:none}
+  .toolbar{margin-left:190px;min-height:42px}
+  .board{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
+  .timer-box{height:100%;min-width:0}
+  .exercise-grid{align-content:stretch;min-height:0}
+  .exercise-card,.add-card{height:100%;min-height:0}
+  .clock{width:min(31vh,150px);height:min(31vh,150px)}
+}
+
