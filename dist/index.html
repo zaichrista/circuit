@@ -4,16 +4,44 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f4f4ef">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Circuit">
   <meta name="description" content="A simple bodyweight circuit picker and 30-second workout timer.">
   <title>Circuit</title>
   <link rel="icon" href="icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="style.css">
   <script defer src="core.js"></script>
   <script defer src="app.js"></script>
 </head>
 <body>
+  <div id="splash" class="splash" aria-hidden="true">
+    <div class="splash-lockup">
+      <div class="splash-logo-row">
+        <div class="splash-mark">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path class="splash-c" d="M35.8 15.5A16.5 16.5 0 1 0 35.8 38.5"/>
+            <g class="splash-top-button">
+              <path d="M24 10V7"/>
+              <rect x="19.5" y="2.5" width="9" height="5.5" rx="2"/>
+            </g>
+            <g class="splash-side-button">
+              <path d="m34.5 13 2.6-2.6"/>
+              <rect x="35.1" y="6.1" width="8" height="5" rx="2" transform="rotate(45 39.1 8.6)"/>
+            </g>
+            <g class="splash-hands">
+              <path d="M24 18v9l7 4"/>
+              <circle cx="24" cy="27" r="2"/>
+            </g>
+          </svg>
+        </div>
+        <span class="splash-word-tail">ircuit</span>
+      </div>
+      <p class="splash-subtitle">Interval timer</p>
+    </div>
+  </div>
   <main class="app">
     <header class="topbar">
       <div class="brand"><div><h1 class="wordmark"><img class="brand-logo" src="icon.svg" alt="C"><span>ircuit</span></h1><p>Interval timer</p></div></div>
