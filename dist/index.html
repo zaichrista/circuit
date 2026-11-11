@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f4ef">
+  <meta name="description" content="A simple bodyweight circuit picker and 30-second workout timer.">
+  <title>Circuit</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="core.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand"><div><h1 class="wordmark"><img class="brand-logo" src="icon.svg" alt="C"><span>ircuit</span></h1><p>Interval timer</p></div></div>
+      <button id="open-bank" aria-label="Open exercise library"><span aria-hidden="true">＋</span> Exercises</button>
+    </header>
+    <div class="toolbar">
+      <div class="count-buttons" role="group" aria-label="Number of exercises"><button data-count="3" aria-pressed="true"><strong>3</strong><span>moves</span></button><button data-count="4" aria-pressed="false"><strong>4</strong><span>moves</span></button></div>
+      <button id="shuffle" aria-label="Shuffle exercises"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h3c5 0 7 12 12 12h3m-4-4 4 4-4 4M3 18h3c2 0 3-2 4-4m4-4c1-2 2-4 4-4h3m-4-4 4 4-4 4"/></svg><span>Shuffle</span></button>
+    </div>
+    <div class="board">
+      <section class="timer-box box" aria-label="Workout timer">
+        <div class="box-top"><h2 id="phase">Timer</h2><label id="rounds-label"><select id="rounds" aria-label="Rounds"><option value="1">1 round</option><option value="2">2 rounds</option><option value="3" selected>3 rounds</option><option value="4">4 rounds</option><option value="5">5 rounds</option><option value="6">6 rounds</option></select></label><span id="round-display" hidden></span></div>
+        <div class="clock-area"><div class="clock"><svg viewBox="0 0 240 240" aria-hidden="true"><circle class="track" cx="120" cy="120" r="108"/><circle id="ring" cx="120" cy="120" r="108"/></svg><div class="clock-text"><span id="seconds" role="timer" aria-label="Seconds remaining">30</span><span id="clock-label">Ready</span></div></div></div>
+        <h3 id="active-name">3 exercises</h3>
+        <div class="timer-meta"><span id="next">6:00 total</span><button id="sound" aria-label="Toggle sound" aria-pressed="true">Sound on</button></div>
+        <div class="timer-actions"><button id="start" class="primary">Start</button><button id="stop" hidden>Stop</button><button id="skip" hidden>Skip</button></div>
+        <div id="awake" role="status" hidden></div>
+      </section>
+      <section class="exercise-grid" id="exercise-grid" aria-label="Selected exercises" aria-live="polite"></section>
+    </div>
+    <div class="sequence-box box"><div><span class="section-kicker">Workout flow</span><h2>Sequence</h2></div><ol id="sequence"></ol></div>
+    <p id="message" role="status" hidden></p>
+  </main>
+  <dialog id="bank" aria-labelledby="bank-title">
+    <div class="dialog-top"><h2 id="bank-title">Exercises</h2><button class="close" aria-label="Close exercises">×</button></div>
+    <form id="add-form"><label class="sr-only" for="exercise-name">Exercise name</label><input id="exercise-name" placeholder="Exercise name" maxlength="65" required autocomplete="off"><label class="sr-only" for="exercise-group">Muscle group</label><select id="exercise-group"><option>Upper body</option><option>Legs</option><option>Core</option><option>Cardio</option></select><button type="submit">Add +</button></form>
+    <div id="bank-list"></div>
+    <div class="dialog-bottom"><button id="reset-bank">Restore default exercises</button><button class="close">Done</button></div>
+  </dialog>
+  <dialog id="choose" aria-labelledby="choose-title"><div class="dialog-top"><h2 id="choose-title">Add exercise</h2><button class="close" aria-label="Close exercise picker">×</button></div><div id="choose-list"></div></dialog>
+</body>
+</html>
